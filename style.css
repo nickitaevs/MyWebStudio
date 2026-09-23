@@ -73,7 +73,8 @@ a:hover { color: var(--accent-dark); }
 
 /* Первый экран */
 .hero { padding: 48px 0 64px; }
-.hero__grid { display: grid; gap: 40px; align-items: center; }
+.hero__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 40px; align-items: center; }
+.hero__text { min-width: 0; }
 .eyebrow { display: inline-block; background: var(--accent-soft); color: var(--accent-dark); font-weight: 600; border-radius: 999px; padding: 6px 14px; font-size: 1rem; }
 .lead { font-size: 1.15rem; color: var(--muted); max-width: 36em; }
 .hero__actions { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0; }
@@ -167,7 +168,7 @@ a:hover { color: var(--accent-dark); }
 
 /* Заявка */
 .cta { background: var(--text); color: #fff; }
-.cta__grid { display: grid; gap: 32px; }
+.cta__grid { display: grid; grid-template-columns: minmax(0, 1fr); gap: 32px; }
 .cta__text p { color: #d3d8e3; }
 .cta__text a { color: #b9c7ff; }
 .cta__text a:hover { color: #fff; }
@@ -176,6 +177,7 @@ a:hover { color: var(--accent-dark); }
 .field label { display: block; font-weight: 600; margin-bottom: 6px; }
 .optional { font-weight: 400; color: var(--muted); }
 .field input[type="text"], .field select, .field textarea {
+  max-width: 100%;
   width: 100%; font: inherit; color: var(--text); background: var(--surface);
   border: 1.5px solid #9aa3b5; border-radius: 10px; padding: 12px 14px; min-height: 50px;
 }
@@ -235,4 +237,9 @@ a:hover { color: var(--accent-dark); }
   .step { padding: 72px 20px 22px; }
   .why { grid-template-columns: repeat(3, 1fr); }
   .cta__grid { grid-template-columns: 1fr 1fr; gap: 64px; align-items: start; }
+}
+
+/* Очень узкие экраны (меньше 360px): факты первого экрана в одну колонку */
+@media (max-width: 359px) {
+  .hero__facts { grid-template-columns: minmax(0, 1fr); }
 }
