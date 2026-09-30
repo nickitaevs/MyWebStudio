@@ -68,31 +68,55 @@
     el.addEventListener('change', function () { if (el.getAttribute('aria-invalid') === 'true') check(name); });
   });
 
-  /**
-   * Заглушка отправки заявки. Замените тело функции на один из вариантов:
-   *
-   * 1) Formspree (проще всего, без своего сервера):
-   *    зарегистрируйтесь на formspree.io, создайте форму и подставьте её адрес:
-   *    return fetch('https://formspree.io/f/ВАШ_ID', {
-   *      method: 'POST', headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
-   *      body: JSON.stringify(data)
-   *    }).then(function (r) { if (!r.ok) throw new Error('send failed'); });
-   *
-   * 2) Telegram-бот: НЕ вставляйте токен бота в этот файл — его увидит любой посетитель.
-   *    Сделайте маленький серверный обработчик (например, облачная функция Яндекс Облака),
-   *    который принимает POST с данными формы и вызывает
-   *    https://api.telegram.org/bot<TOKEN>/sendMessage с вашим chat_id.
-   *    Здесь останется только fetch('https://ваш-обработчик', { method: 'POST', body: JSON.stringify(data) }).
+  /*
+   * Заявка уходит без сервера и сторонних сервисов: сайт собирает текст и открывает
+   * мессенджер или почту посетителя с уже готовым сообщением. Отправляет его сам посетитель.
+   * Контакты получателя меняются здесь.
    */
-  function sendLead(data) {
-    return new Promise(function (resolve) { setTimeout(resolve, 600); });
+  var CHANNELS = {
+    tg: {
+      name: 'Telegram',
+      url: function (text) { return 'https://t.me/nickitaev?text=' + encodeURIComponent(text); },
+      fallback: 'в Telegram: @nickitaev'
+    },
+    wa: {
+      name: 'WhatsApp',
+      url: function (text) { return 'https://wa.me/79051190974?text=' + encodeURIComponent(text); },
+      fallback: 'в WhatsApp: +7 905 119-09-74'
+    },
+    mail: {
+      name: 'почту',
+      url: function (text) {
+        return 'mailto:nickitaevs@yandex.ru?subject=' + encodeURIComponent('Заявка с сайта «Ясный сайт»') +
+          '&body=' + encodeURIComponent(text);
+      },
+      fallback: 'на nickitaevs@yandex.ru'
+    }
+  };
+
+  function buildMessage() {
+    var lines = [
+      'Здравствуйте! Заявка с сайта «Ясный сайт».',
+      'Имя: ' + form.elements.name.value.trim(),
+      'Контакт: ' + form.elements.contact.value.trim(),
+      'Нужен: ' + typeSelect.value
+    ];
+    var comment = form.elements.comment.value.trim();
+    if (comment) lines.push('Комментарий: ' + comment);
+    return lines.join('\n');
   }
 
   var status = document.getElementById('form-status');
-  var submit = form.querySelector('[type="submit"]');
+  // Какой кнопкой отправляют форму; Enter в поле — как первая кнопка (Telegram)
+  var via = 'tg';
+  form.querySelectorAll('button[data-via]').forEach(function (btn) {
+    btn.addEventListener('click', function () { via = btn.getAttribute('data-via'); });
+  });
 
   form.addEventListener('submit', function (e) {
     e.preventDefault();
+    var channel = CHANNELS[via] || CHANNELS.tg;
+    via = 'tg';
     var ok = Object.keys(rules).map(check).every(Boolean);
     if (!ok) {
       status.className = 'form__status is-error';
@@ -101,22 +125,15 @@
       if (first) first.focus();
       return;
     }
-    var data = {
-      name: form.elements.name.value.trim(),
-      contact: form.elements.contact.value.trim(),
-      type: typeSelect.value,
-      comment: form.elements.comment.value.trim()
-    };
-    submit.disabled = true;
-    status.className = 'form__status';
-    status.textContent = 'Отправляю…';
-    sendLead(data).then(function () {
-      form.reset();
-      status.className = 'form__status is-ok';
-      status.textContent = 'Спасибо! Заявка отправлена, отвечу в течение рабочего дня.';
-    }).catch(function () {
-      status.className = 'form__status is-error';
-      status.textContent = 'Не получилось отправить. Напишите мне в Telegram или WhatsApp — ссылки выше.';
-    }).then(function () { submit.disabled = false; });
+    var url = channel.url(buildMessage());
+    if (url.indexOf('mailto:') === 0) {
+      window.location.href = url;
+    } else {
+      var win = window.open(url, '_blank');
+      if (win) win.opener = null; else window.location.href = url;
+    }
+    status.className = 'form__status is-ok';
+    status.textContent = 'Открываю ' + channel.name + ' с готовым сообщением — осталось нажать «Отправить». ' +
+      'Не открылось? Напишите мне ' + channel.fallback + '.';
   });
 })();

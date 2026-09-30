@@ -393,7 +393,12 @@
         <label for="f-agree">Даю согласие на обработку персональных данных по <a href="privacy.html">политике конфиденциальности</a></label>
         <p class="field__error" id="f-agree-err" aria-live="polite"></p>
       </div>
-      <button class="btn btn--cta btn--lg btn--block" type="submit">Обсудить мой сайт <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+      <p class="form__hint">Заявка откроется в вашем мессенджере с готовым текстом — останется нажать «Отправить».</p>
+      <div class="send">
+        <button class="btn btn--cta btn--lg btn--block" type="submit" data-via="tg">Отправить в Telegram <svg class="btn__arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h14M13 6l6 6-6 6"/></svg></button>
+        <button class="btn btn--ghost btn--block" type="submit" data-via="wa">Отправить в WhatsApp</button>
+        <button class="link-btn" type="submit" data-via="mail">или отправить на почту</button>
+      </div>
       <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
     </form>
   </div>
