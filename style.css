@@ -221,6 +221,7 @@ a:hover { color: var(--accent-dark); }
 .form { background: var(--surface); color: var(--text); border-radius: var(--radius); padding: 24px 20px; }
 .messengers { display: flex; flex-wrap: wrap; gap: 12px; }
 .messengers .btn { flex: 1 1 200px; }
+.footer__list li { min-height: 44px; display: flex; align-items: center; }
 .field { margin-bottom: 18px; }
 .field label { display: block; font-weight: 600; margin-bottom: 6px; }
 .optional { font-weight: 400; color: var(--muted); }
