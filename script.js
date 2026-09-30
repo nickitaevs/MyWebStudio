@@ -43,12 +43,12 @@
       return '';
     },
     contact: function (v) {
-      if (!v) return 'Оставьте телефон, e-mail или @ник в Telegram, чтобы я мог ответить';
+      if (!v) return 'Оставьте телефон, e-mail или @ник в Telegram — иначе я не смогу ответить';
       if (EMAIL.test(v) || TG.test(v) || isPhone(v)) return '';
       return 'Проверьте контакт: например +7 900 123-45-67, name@mail.ru или @username';
     },
     type: function (v) { return v ? '' : 'Выберите тип сайта или вариант «Пока не знаю»'; },
-    agree: function (_, el) { return el.checked ? '' : 'Нужно согласие, чтобы я мог связаться с вами'; }
+    agree: function (_, el) { return el.checked ? '' : 'Без согласия я не смогу связаться с вами'; }
   };
 
   function check(name) {

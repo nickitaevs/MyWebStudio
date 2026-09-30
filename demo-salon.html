@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Демо: студия красоты «Мята» — Ясный сайт</title>
+  <meta name="description" content="Демо-пример сайта-визитки для студии красоты. Бизнес вымышленный, сайт показывает, как может выглядеть ваш.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f6f1ee">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-cyrillic-wght-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+20A0-20C0; }
+    :root { --bg: #f6f1ee; --card: #fffaf7; --text: #2d2326; --muted: #6a5a5f; --accent: #3f6b5a; --accent-dark: #2f5345; --soft: #e4ede8; --rose: #ecd5cf; --line: #e6dad5; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 "Manrope", system-ui, sans-serif; }
+    a { color: var(--accent); }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .demo-bar { background: #1e3a5f; color: #f4f6f9; font-size: 1rem; }
+    .demo-bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
+    .demo-bar p { margin: 0; }
+    .demo-bar a { color: #f5bd66; font-weight: 700; display: inline-flex; align-items: center; min-height: 44px; }
+    header.top { padding: 20px 0; }
+    .brand { font-weight: 800; font-size: 1.3rem; letter-spacing: .02em; }
+    .hero { display: grid; gap: 32px; padding-top: 24px; padding-bottom: 56px; align-items: center; }
+    .hero h1 { font-size: clamp(2rem, 7vw, 3.2rem); }
+    .hero p { color: var(--muted); font-size: 1.1rem; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 26px; border-radius: 999px; background: var(--accent); color: #fff; font-weight: 800; text-decoration: none; }
+    .btn:hover { background: var(--accent-dark); color: #fff; }
+    .photo { aspect-ratio: 4 / 5; border-radius: 28px; background: linear-gradient(160deg, var(--rose), var(--soft)); display: grid; place-items: center; color: var(--muted); font-weight: 600; }
+    section { padding: 48px 0; }
+    .alt { background: var(--card); }
+    .prices { list-style: none; padding: 0; margin: 0; display: grid; gap: 4px; }
+    .prices li { display: flex; justify-content: space-between; gap: 16px; padding: 14px 0; border-bottom: 1px solid var(--line); }
+    .prices small { display: block; color: var(--muted); font-size: 1rem; }
+    .prices b { white-space: nowrap; }
+    .gallery { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+    .gallery span { aspect-ratio: 1; border-radius: 16px; background: var(--rose); }
+    .gallery span:nth-child(even) { background: var(--soft); }
+    .info { display: grid; gap: 20px; }
+    .map { min-height: 220px; border-radius: 20px; background: repeating-linear-gradient(45deg, var(--soft) 0 14px, #d9e6df 14px 28px); display: grid; place-items: center; color: var(--accent-dark); font-weight: 700; }
+    footer { padding: 32px 0 48px; color: var(--muted); }
+    @media (min-width: 760px) {
+      .hero { grid-template-columns: 1.1fr .9fr; }
+      .info { grid-template-columns: 1fr 1fr; }
+      .gallery { grid-template-columns: repeat(6, 1fr); }
+    }
+  </style>
+</head>
+<body>
+<div class="demo-bar">
+  <div class="wrap">
+    <p>Это демо сайта-визитки от «Ясного сайта». Студия вымышленная.</p>
+    <a href="index.html#order">Хочу такой сайт →</a>
+  </div>
+</div>
+
+<header class="top"><div class="wrap"><span class="brand">МЯТА · студия красоты</span></div></header>
+
+<main>
+  <div class="wrap hero">
+    <div>
+      <h1>Маникюр и брови в двух минутах от метро</h1>
+      <p>Покрытие держится до трёх недель. Работаем с 10:00 до 21:00 без выходных.</p>
+      <a class="btn" href="#contacts">Записаться в WhatsApp</a>
+    </div>
+    <div class="photo" role="img" aria-label="Место для фото интерьера студии">Здесь будет ваше фото</div>
+  </div>
+
+  <section class="alt" id="prices" aria-labelledby="prices-h">
+    <div class="wrap">
+      <h2 id="prices-h">Услуги и цены</h2>
+      <ul class="prices">
+        <li><span>Маникюр с покрытием<small>гель-лак, любой цвет</small></span><b>2 500 ₽</b></li>
+        <li><span>Маникюр без покрытия<small>обработка и форма</small></span><b>1 400 ₽</b></li>
+        <li><span>Педикюр с покрытием<small>стопы и пальцы</small></span><b>3 200 ₽</b></li>
+        <li><span>Коррекция и окрашивание бровей<small>подбор формы и цвета</small></span><b>1 600 ₽</b></li>
+      </ul>
+    </div>
+  </section>
+
+  <section aria-labelledby="works-h">
+    <div class="wrap">
+      <h2 id="works-h">Наши работы</h2>
+      <div class="gallery" role="img" aria-label="Место для галереи работ: шесть фото"><span></span><span></span><span></span><span></span><span></span><span></span></div>
+    </div>
+  </section>
+
+  <section class="alt" id="contacts" aria-labelledby="contacts-h">
+    <div class="wrap info">
+      <div>
+        <h2 id="contacts-h">Как нас найти</h2>
+        <p>ул. Примерная, 1 — вход со двора, второй этаж.</p>
+        <p>Ежедневно 10:00–21:00</p>
+        <p>WhatsApp и телефон: +7&nbsp;000&nbsp;000&#8209;00&#8209;00 (в демо номер не работает)</p>
+        <a class="btn" href="index.html#order">Хочу такой сайт для себя</a>
+      </div>
+      <div class="map" role="img" aria-label="Место для карты проезда">Здесь будет карта</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Демо-сайт. Сделан в <a href="index.html">«Ясном сайте»</a>: визитка за 2 дня, от 7&nbsp;000&nbsp;₽.</div></footer>
+</body>
+</html>

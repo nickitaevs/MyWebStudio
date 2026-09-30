@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Демо: кофейня «Зерно» — Ясный сайт</title>
+  <meta name="description" content="Демо-пример сайта-визитки для кофейни. Кофейня вымышленная, сайт показывает, как может выглядеть ваш.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#2a1e17">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-cyrillic-wght-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+20A0-20C0; }
+    :root { --dark: #2a1e17; --bg: #f7f0e6; --card: #fffaf3; --text: #2a1e17; --muted: #65554a; --accent: #b0602a; --cream: #efe1cc; --line: #e3d4bf; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 "Manrope", system-ui, sans-serif; }
+    a { color: #8a4516; }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .demo-bar { background: #1e3a5f; color: #f4f6f9; font-size: 1rem; }
+    .demo-bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
+    .demo-bar p { margin: 0; }
+    .demo-bar a { color: #f5bd66; font-weight: 700; display: inline-flex; align-items: center; min-height: 44px; }
+    .hero { background: var(--dark); color: #f7f0e6; padding: 56px 0 64px; }
+    .hero .brand { font-weight: 800; letter-spacing: .2em; color: #e8b98f; margin-bottom: 12px; }
+    .hero h1 { font-size: clamp(2rem, 7vw, 3.4rem); max-width: 14em; }
+    .hero p { color: #dccbb8; font-size: 1.1rem; max-width: 34em; }
+    .actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 24px; border-radius: 12px; background: #e8b98f; color: var(--dark); font-weight: 800; text-decoration: none; border: 2px solid #e8b98f; }
+    .btn:hover { background: #f1cca9; color: var(--dark); }
+    .btn--line { background: transparent; color: #f7f0e6; }
+    .btn--line:hover { background: rgba(255, 255, 255, .08); color: #fff; }
+    section { padding: 48px 0; }
+    .menu { display: grid; gap: 24px; }
+    .menu h3 { color: #8a4516; }
+    .menu ul { list-style: none; padding: 0; margin: 0; }
+    .menu li { display: flex; justify-content: space-between; gap: 16px; padding: 10px 0; border-bottom: 1px dashed var(--line); }
+    .menu b { white-space: nowrap; }
+    .alt { background: var(--card); }
+    .info { display: grid; gap: 20px; }
+    .map { min-height: 220px; border-radius: 20px; background: repeating-linear-gradient(-45deg, var(--cream) 0 14px, #e6d3b9 14px 28px); display: grid; place-items: center; color: #8a4516; font-weight: 700; }
+    .social { display: flex; flex-wrap: wrap; gap: 8px 20px; padding: 0; list-style: none; }
+    .social span { display: inline-flex; align-items: center; min-height: 44px; font-weight: 700; color: var(--muted); }
+    footer { padding: 32px 0 48px; color: var(--muted); }
+    @media (min-width: 760px) { .menu { grid-template-columns: repeat(3, 1fr); } .info { grid-template-columns: 1fr 1fr; } }
+  </style>
+</head>
+<body>
+<div class="demo-bar">
+  <div class="wrap">
+    <p>Это демо сайта-визитки от «Ясного сайта». Кофейня вымышленная.</p>
+    <a href="index.html#order">Хочу такой сайт →</a>
+  </div>
+</div>
+
+<main>
+  <div class="hero">
+    <div class="wrap">
+      <p class="brand">ЗЕРНО · КОФЕЙНЯ</p>
+      <h1>Кофе с собой и завтраки весь день</h1>
+      <p>Обжариваем зерно раз в неделю. Открыты с 8:00 — успеете до работы.</p>
+      <div class="actions">
+        <a class="btn" href="#menu">Смотреть меню</a>
+        <a class="btn btn--line" href="#contacts">Как добраться</a>
+      </div>
+    </div>
+  </div>
+
+  <section id="menu" aria-labelledby="menu-h">
+    <div class="wrap">
+      <h2 id="menu-h">Меню</h2>
+      <div class="menu">
+        <div>
+          <h3>Кофе</h3>
+          <ul>
+            <li><span>Эспрессо</span><b>150 ₽</b></li>
+            <li><span>Капучино 300 мл</span><b>240 ₽</b></li>
+            <li><span>Флэт уайт</span><b>260 ₽</b></li>
+            <li><span>Раф ванильный</span><b>290 ₽</b></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Завтраки</h3>
+          <ul>
+            <li><span>Сырники со сметаной</span><b>320 ₽</b></li>
+            <li><span>Омлет с сыром</span><b>290 ₽</b></li>
+            <li><span>Каша овсяная с ягодами</span><b>240 ₽</b></li>
+          </ul>
+        </div>
+        <div>
+          <h3>Выпечка</h3>
+          <ul>
+            <li><span>Круассан</span><b>160 ₽</b></li>
+            <li><span>Синнабон</span><b>210 ₽</b></li>
+            <li><span>Морковный торт</span><b>280 ₽</b></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" id="contacts" aria-labelledby="contacts-h">
+    <div class="wrap info">
+      <div>
+        <h2 id="contacts-h">Адрес и часы</h2>
+        <p>ул. Примерная, 1 — напротив остановки «Парк».</p>
+        <p>Пн–пт 8:00–21:00, сб–вс 9:00–22:00</p>
+        <p>Телефон и WhatsApp: +7&nbsp;000&nbsp;000&#8209;00&#8209;00 (в демо номер не работает)</p>
+        <ul class="social" aria-label="Соцсети кофейни (в демо без ссылок)"><li><span>ВКонтакте</span></li><li><span>Telegram-канал</span></li></ul>
+        <a class="btn" href="index.html#order">Хочу такой сайт для себя</a>
+      </div>
+      <div class="map" role="img" aria-label="Место для карты с маршрутом">Здесь будет карта с маршрутом</div>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Демо-сайт. Сделан в <a href="index.html">«Ясном сайте»</a>: визитка за 2 дня, от 7&nbsp;000&nbsp;₽.</div></footer>
+</body>
+</html>

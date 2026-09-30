@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Демо: репетитор английского — Ясный сайт</title>
+  <meta name="description" content="Демо-пример лендинга для репетитора английского. Репетитор вымышленный, сайт показывает, как может выглядеть ваш.">
+  <meta name="robots" content="noindex">
+  <meta name="theme-color" content="#f3f6fb">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <style>
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-cyrillic-wght-normal.woff2") format("woff2"); unicode-range: U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116; }
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-latin-wght-normal.woff2") format("woff2"); unicode-range: U+0000-00FF, U+2000-206F; }
+    @font-face { font-family: "Manrope"; font-weight: 200 800; font-display: swap; src: url("manrope-latin-ext-wght-normal.woff2") format("woff2"); unicode-range: U+20A0-20C0; }
+    :root { --bg: #f3f6fb; --card: #fff; --text: #172033; --muted: #4f5b70; --accent: #2b4fb3; --accent-dark: #1f3d8c; --sun: #ffd166; --soft: #e3eafa; --line: #d8e0ef; }
+    *, *::before, *::after { box-sizing: border-box; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 17px/1.6 "Manrope", system-ui, sans-serif; }
+    a { color: var(--accent); }
+    h1, h2, h3 { line-height: 1.2; margin: 0 0 .5em; }
+    .wrap { max-width: 1040px; margin: 0 auto; padding: 0 20px; }
+    .demo-bar { background: #1e3a5f; color: #f4f6f9; font-size: 1rem; }
+    .demo-bar .wrap { display: flex; flex-wrap: wrap; gap: 4px 16px; align-items: center; justify-content: space-between; padding-top: 10px; padding-bottom: 10px; }
+    .demo-bar p { margin: 0; }
+    .demo-bar a { color: #f5bd66; font-weight: 700; display: inline-flex; align-items: center; min-height: 44px; }
+    .hero { padding-top: 40px; padding-bottom: 56px; }
+    .tag { display: inline-block; background: var(--sun); border-radius: 999px; padding: 4px 14px; font-weight: 700; }
+    .hero h1 { font-size: clamp(2rem, 6.5vw, 3.2rem); margin-top: 16px; max-width: 16em; }
+    .hero p { color: var(--muted); font-size: 1.1rem; max-width: 36em; }
+    .btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 12px 26px; border: 0; border-radius: 12px; background: var(--accent); color: #fff; font: 800 1rem/1.2 "Manrope", sans-serif; text-decoration: none; cursor: pointer; }
+    .btn:hover { background: var(--accent-dark); color: #fff; }
+    section { padding: 48px 0; }
+    .alt { background: var(--card); }
+    .cards { display: grid; gap: 16px; }
+    .card { background: var(--card); border: 1px solid var(--line); border-radius: 16px; padding: 22px; }
+    .alt .card { background: var(--bg); }
+    .card p { margin: 0; color: var(--muted); }
+    .num { display: inline-grid; place-items: center; width: 36px; height: 36px; border-radius: 50%; background: var(--sun); font-weight: 800; margin-bottom: 10px; }
+    .price { font-size: 1.6rem; font-weight: 800; margin: 4px 0 8px; }
+    details { background: var(--card); border: 1px solid var(--line); border-radius: 12px; margin-bottom: 12px; }
+    summary { cursor: pointer; padding: 16px 20px; font-weight: 700; }
+    details p { margin: 0; padding: 0 20px 16px; color: var(--muted); }
+    form { background: var(--card); border-radius: 16px; padding: 24px 20px; display: grid; gap: 16px; max-width: 560px; }
+    label { font-weight: 700; display: block; margin-bottom: 6px; }
+    input, select { width: 100%; font: inherit; min-height: 50px; padding: 10px 14px; border: 1.5px solid #7a8799; border-radius: 10px; background: #fff; color: var(--text); }
+    .note { margin: 0; color: var(--muted); }
+    .status { margin: 0; font-weight: 700; color: var(--accent-dark); }
+    .status:empty { display: none; }
+    footer { padding: 32px 0 48px; color: var(--muted); }
+    @media (min-width: 760px) { .cards { grid-template-columns: repeat(3, 1fr); } form { padding: 28px; } }
+  </style>
+</head>
+<body>
+<div class="demo-bar">
+  <div class="wrap">
+    <p>Это демо лендинга от «Ясного сайта». Репетитор вымышленный.</p>
+    <a href="index.html#order">Хочу такой сайт →</a>
+  </div>
+</div>
+
+<main>
+  <div class="wrap hero">
+    <span class="tag">Английский для 5–11 классов</span>
+    <h1>Подготовка к ОГЭ и ЕГЭ по английскому онлайн</h1>
+    <p>Занятия один на один по видеосвязи. После каждого урока родитель получает короткий отчёт: что прошли и что задано.</p>
+    <a class="btn" href="#trial">Записаться на пробный урок</a>
+  </div>
+
+  <section class="alt" aria-labelledby="how-h">
+    <div class="wrap">
+      <h2 id="how-h">Как проходят занятия</h2>
+      <div class="cards">
+        <div class="card"><span class="num">1</span><h3>Пробный урок</h3><p>30 минут: проверяю уровень и показываю, над чем работать в первую очередь.</p></div>
+        <div class="card"><span class="num">2</span><h3>План до экзамена</h3><p>Расписываю темы по неделям, чтобы вы видели, где ребёнок сейчас.</p></div>
+        <div class="card"><span class="num">3</span><h3>Пробные экзамены</h3><p>Раз в месяц — вариант в формате ОГЭ или ЕГЭ с разбором ошибок.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section aria-labelledby="price-h">
+    <div class="wrap">
+      <h2 id="price-h">Стоимость</h2>
+      <div class="cards">
+        <div class="card"><h3>Пробный урок</h3><p class="price">Бесплатно</p><p>30 минут, без обязательства продолжать.</p></div>
+        <div class="card"><h3>Разовое занятие</h3><p class="price">1 500 ₽</p><p>60 минут по видеосвязи.</p></div>
+        <div class="card"><h3>Абонемент на 8 занятий</h3><p class="price">11 200 ₽</p><p>1 400 ₽ за занятие, действует 6 недель.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="alt" aria-labelledby="faq-h">
+    <div class="wrap">
+      <h2 id="faq-h">Вопросы родителей</h2>
+      <details><summary>Что нужно для занятий?</summary><p>Компьютер или планшет с камерой и наушники. Учебники не покупаем — материалы присылаю сама.</p></details>
+      <details><summary>Можно ли перенести урок?</summary><p>Да, если предупредить за 12 часов. Урок переносится без оплаты.</p></details>
+      <details><summary>Как я узнаю о прогрессе?</summary><p>После каждого урока — отчёт в мессенджере, раз в месяц — результат пробного экзамена.</p></details>
+    </div>
+  </section>
+
+  <section id="trial" aria-labelledby="trial-h">
+    <div class="wrap">
+      <h2 id="trial-h">Запись на пробный урок</h2>
+      <form id="demo-form" novalidate>
+        <div><label for="d-name">Имя родителя</label><input id="d-name" name="name" type="text" autocomplete="name"></div>
+        <div><label for="d-contact">Телефон или Telegram</label><input id="d-contact" name="contact" type="text" autocomplete="tel"></div>
+        <div><label for="d-grade">Класс</label>
+          <select id="d-grade" name="grade"><option>5–8 класс</option><option>9 класс, ОГЭ</option><option>10–11 класс, ЕГЭ</option></select>
+        </div>
+        <button class="btn" type="submit">Записаться на пробный урок</button>
+        <p class="note">Это демо: форма ничего не отправляет.</p>
+        <p class="status" id="d-status" role="status"></p>
+      </form>
+    </div>
+  </section>
+</main>
+
+<footer><div class="wrap">Демо-лендинг. Сделан в <a href="index.html">«Ясном сайте»</a>: лендинг за 3 дня, от 20&nbsp;000&nbsp;₽.</div></footer>
+<script>
+  document.getElementById('demo-form').addEventListener('submit', function (e) {
+    e.preventDefault();
+    document.getElementById('d-status').textContent = 'В настоящем сайте здесь заявка ушла бы репетитору в Telegram или на почту.';
+  });
+</script>
+</body>
+</html>
